@@ -3,6 +3,8 @@ const bot = new Discord.Client();
 var prefix = ".";
 const fs = require("fs");
 
+const mysql = require("mysql")
+
 bot.commands = new Discord.Collection()
 
 require('fs').readdir("./commands/", (err, files) => {
@@ -17,6 +19,18 @@ bot.on("ready", () => {
   console.log("Alive.");
   bot.user.setActivity("For .help", {type: "WATCHING"});
 });
+
+var con = mysql.createConnection({
+  host: "sql9.freemysqlhosting.net",
+  user: "sql9287994",
+  pass: process.env.sqlpass,
+  database: "sql9287994"
+})
+
+con.connect(err => {
+  if(err) throw err;
+  console.log("connected.")
+})
 
 bot.on('message', message => {
   let mArray = message.content.split(" ")
