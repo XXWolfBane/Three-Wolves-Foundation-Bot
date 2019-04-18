@@ -22,7 +22,7 @@ bot.on("ready", () => {
 
 bot.on("message", message => {
 if(message.content == ".xp") {
-con.query(`SELECT xp FROM xp WHERE id = '${message.author.id}'`)
+con.query(`SELECT xp FROM xp WHERE id = '${message.author.id}'`, message.channel.send)
 } else {
   return;
 }
