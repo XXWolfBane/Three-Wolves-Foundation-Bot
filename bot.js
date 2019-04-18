@@ -32,6 +32,9 @@ con.query(`SELECT * FROM xp WHERE id = '${message.author.id}'`, (err, rows) => {
   
     if(rows.length < 1 ) {
       sql =  `INSERT INTO xp (id, xp) VALUES ('${message.author.id}', ${generateXP()})`
+    } else {
+    let xp = rows[0].xp;
+      sql = `UPDATE xp SET xp = ${xp + generateXP()} WHERE id = '${message.author.id}'`
     }
   con.query(sql, console.log);
   })
