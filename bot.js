@@ -20,6 +20,14 @@ bot.on("ready", () => {
   bot.user.setActivity("For .help", {type: "WATCHING"});
 });
 
+bot.on("message", message => {
+if(message.content == ".xp") {
+con.query(`SELECT xp FROM xp WHERE id = '${message.author.id}'`)
+} else {
+  return;
+}
+})
+
 function generateXP() {
   return Math.floor(Math.random() * (30 - 10 + 1)) + 10;
 }
