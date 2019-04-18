@@ -24,6 +24,19 @@ function generateXP() {
   return Math.floor(Math.random() * (30 - 10 + 1)) + 10;
 }
 
+bot.on("message", message => {
+con.query(`SELECT * FROM xp WHERE id = '${message.author.id}'`, (err, rows) => {
+    if(err) throw err
+    
+  let sql;
+  
+    if(rows.length < 1 ) {
+      sql =  `INSERT INTO xp (id, xp) VALUES ('${message.author.id}', ${generateXP()})`
+    }
+  con.query(sql, console.log);
+  })
+})
+
 var con = mysql.createConnection({
   host: "sql9.freemysqlhosting.net",
   user: "sql9287994",
