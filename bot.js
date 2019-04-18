@@ -30,6 +30,7 @@ var con = mysql.createConnection({
 con.connect(err => {
   if(err) throw err;
   console.log("connected.")
+  con.query("SHOW TABLES", console.log)
 })
 
 bot.on('message', message => {
