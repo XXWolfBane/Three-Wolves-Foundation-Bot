@@ -20,6 +20,10 @@ bot.on("ready", () => {
   bot.user.setActivity("For .help", {type: "WATCHING"});
 });
 
+function generateXP() {
+  return Math.floor(Math.random() * (30 - 10 + 1)) + 10;
+}
+
 var con = mysql.createConnection({
   host: "sql9.freemysqlhosting.net",
   user: "sql9287994",
