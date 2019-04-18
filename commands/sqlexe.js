@@ -1,6 +1,6 @@
 module.exports.run = (bot, message, args, discord, con) => {
 
-let args = args.join(" ")
+let join = args.join(" ")
 
 if(message.author.id == "513103852409716736") {
   con.query(args)
