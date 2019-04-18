@@ -23,7 +23,7 @@ bot.on("ready", () => {
 var con = mysql.createConnection({
   host: "sql9.freemysqlhosting.net",
   user: "sql9287994",
-  pass: process.env.sqlpass,
+  password: process.env.sqlpass,
   database: "sql9287994"
 })
 
