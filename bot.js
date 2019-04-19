@@ -32,6 +32,7 @@ con.query(`SELECT * FROM xp WHERE id = '${message.author.id}'`, (err, rows) => {
   let sql;
     
     if(message.content == ".xp") return;
+    if(message.author.bot) return;
   
     if(rows.length < 1 ) {
       sql =  `INSERT INTO xp (id, xp) VALUES ('${message.author.id}', ${generateXP()})`
