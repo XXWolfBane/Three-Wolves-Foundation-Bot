@@ -40,7 +40,7 @@ con.query(`SELECT * FROM twf_xp WHERE id = '${message.author.id}'`, (err, rows) 
       sql =  `INSERT INTO twf_xp (id, xp) VALUES ('${message.author.id}', ${generateXP()})`
     } else {
     let xp = rows[0].xp;
-      sql = `UPDATE xp SET xp = ${xp + generateXP()} WHERE id = '${message.author.id}'`
+      sql = `UPDATE twf_xp SET xp = ${xp + generateXP()} WHERE id = '${message.author.id}'`
     }
   con.query(sql, console.log);
   })
