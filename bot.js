@@ -22,7 +22,7 @@ bot.on("ready", () => {
 
 
 function generateXP() {
-  return Math.floor(Math.random() * (8 - 1 + 1)) + 10;
+  return Math.floor(Math.random() * (15 - 1 + 1)) + 10;
 }
 
 bot.on("message", message => {
