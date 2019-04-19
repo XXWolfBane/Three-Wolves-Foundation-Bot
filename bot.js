@@ -3,6 +3,8 @@ const bot = new Discord.Client();
 var prefix = ".";
 const fs = require("fs");
 
+
+
 const mysql = require("mysql")
 
 bot.commands = new Discord.Collection()
@@ -26,7 +28,7 @@ function generateXP() {
 }
 
 bot.on("message", message => {
-con.query(`SELECT * FROM xp WHERE id = '${message.author.id}'`, (err, rows) => {
+con.query(`SELECT * FROM twf_xp WHERE id = '${message.author.id}'`, (err, rows) => {
     if(err) throw err
     
   let sql;
@@ -35,7 +37,7 @@ con.query(`SELECT * FROM xp WHERE id = '${message.author.id}'`, (err, rows) => {
     if(message.author.bot) return;
   
     if(rows.length < 1 ) {
-      sql =  `INSERT INTO xp (id, xp) VALUES ('${message.author.id}', ${generateXP()})`
+      sql =  `INSERT INTO twf_xp (id, xp) VALUES ('${message.author.id}', ${generateXP()})`
     } else {
     let xp = rows[0].xp;
       sql = `UPDATE xp SET xp = ${xp + generateXP()} WHERE id = '${message.author.id}'`
@@ -43,6 +45,7 @@ con.query(`SELECT * FROM xp WHERE id = '${message.author.id}'`, (err, rows) => {
   con.query(sql, console.log);
   })
 })
+
 
 var con = mysql.createConnection({
   host: "sql9.freemysqlhosting.net",
