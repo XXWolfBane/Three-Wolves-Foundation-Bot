@@ -1,4 +1,4 @@
-module.exports.run = (bot, message, args, discord, con) => {
+module.exports.run = (bot, message, args, Discord, con) => {
 
 let join = args.join(" ")
 
