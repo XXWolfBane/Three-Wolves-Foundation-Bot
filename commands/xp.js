@@ -1,6 +1,6 @@
 module.exports.run = (bot, message, args, discord, con) => {
 
- con.query(`SELECT * FROM xp WHERE id = '${message.author.id}'`, (err, rows) => {
+ con.query(`SELECT * FROM twf_xp WHERE id = '${message.author.id}'`, (err, rows) => {
   if(err) throw err;
   
   
