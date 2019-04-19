@@ -20,14 +20,6 @@ bot.on("ready", () => {
   bot.user.setActivity("For .help", {type: "WATCHING"});
 });
 
-bot.on("message", message => {
-if(message.content == ".xp") {
-let xp = con.query(`SELECT xp FROM xp WHERE id = '${message.author.id}'`)
-message.channel.send(xp)
-} else {
-  return;
-}
-})
 
 function generateXP() {
   return Math.floor(Math.random() * (8 - 1 + 1)) + 10;
@@ -38,6 +30,8 @@ con.query(`SELECT * FROM xp WHERE id = '${message.author.id}'`, (err, rows) => {
     if(err) throw err
     
   let sql;
+    
+    if(message.content == ".xp") return;
   
     if(rows.length < 1 ) {
       sql =  `INSERT INTO xp (id, xp) VALUES ('${message.author.id}', ${generateXP()})`
