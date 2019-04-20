@@ -4,8 +4,13 @@ module.exports.run = (bot, message, args, discord, con) => {
   if(err) throw err;
   
   
+  let xpe = new Discord.RichEmbed()
+  .setTitle("User XP")
+  .setDescription(`Your XP is:`, xp)
+  .setColor("BLUE")
+  
   let xp = rows[0].xp
-  message.channel.send(xp)
+  message.channel.send({embed: xpe})
  })
 }
 
