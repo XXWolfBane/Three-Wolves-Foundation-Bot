@@ -1,4 +1,4 @@
-module.exports.run = (bot, message, args, discord, con) => {
+module.exports.run = (bot, message, args, Discord, con) => {
 
  con.query(`SELECT * FROM twf_xp WHERE id = '${message.author.id}'`, (err, rows) => {
   if(err) throw err;
