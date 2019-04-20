@@ -7,7 +7,7 @@ module.exports.run = (bot, message, args, Discord, con) => {
   
   let xpe = new Discord.RichEmbed()
   .setTitle("User XP")
-  .setDescription(`Your XP is:`, xp)
+  .setDescription(`Your XP is: ${xp}`)
   .setColor("BLUE")
   
   
